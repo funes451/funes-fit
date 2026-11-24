@@ -1,0 +1,14 @@
+[Unit]
+Description=Funes Fit
+After=network.target
+
+[Service]
+User=funesfit
+WorkingDirectory=/opt/funes-fit/backend
+EnvironmentFile=/opt/funes-fit/backend/.env
+ExecStartPre=/opt/funes-fit/.venv/bin/python -m app.cli migrar
+ExecStart=/opt/funes-fit/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --proxy-headers
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

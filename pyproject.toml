@@ -1,0 +1,20 @@
+[project]
+name = "funes-fit"
+version = "1.1.0"
+description = "Menú, compra, entrenamiento y progreso para Funes y su amigo"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.165.0",
+    "SQLAlchemy==2.1.9",
+    "alembic==1.20.1",
+    "argon2-cffi==25.1.0",
+    "PyOTP==2.12.1",
+    "pywebpush==2.5.0",
+    "pydantic==2.14.4",
+    "python-multipart==0.0.34",
+    "tzdata==2026.6",
+    "psycopg[binary]==3.3.9",
+]
+
+[tool.vercel]
+entrypoint = "server:app"
